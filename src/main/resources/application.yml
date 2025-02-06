@@ -1,0 +1,15 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: jpa
+  datasource:
+    url: jdbc:postgresql://localhost:5432/data_jpa
+    username: postgres
+    password: Pankaj@1996
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
