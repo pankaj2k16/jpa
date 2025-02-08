@@ -1,22 +1,18 @@
 package com.epankaj.jpa.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Lecture {
+@SuperBuilder
+public class Lecture extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String name;
 
     @ManyToOne
