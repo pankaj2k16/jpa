@@ -1,31 +1,34 @@
 package com.epankaj.jpa.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email",
-            unique = true, nullable = false)
+    @Column(
+            unique = true,
+            nullable = false)
     private String email;
 
-    @Column(name = "age")
     private int age;
 
     @Column(
@@ -38,4 +41,7 @@ public class Author {
             insertable = false
     )
     private LocalDateTime lastModifiedAt;
+
+    @ManyToMany(mappedBy = "authors")
+    private List<Course> courses;
 }
